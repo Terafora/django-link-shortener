@@ -10,7 +10,7 @@
         </div>
         <div class="flex justify-between items-center">
             <p><a class="underline text-blue-700" href="{{ link.url }}">{{ link.url }}</a></p>
-            <p><a class="underline text-blue-700" href="">Open /{{link.slug}}</a></p>
+            <p><a target="_blank" class="underline text-blue-700" href="{% url 'root-link' link.slug %}">Open /{{link.slug}}</a></p>
         </div>
     </div>
     {% endfor %}

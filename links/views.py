@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Link
 # Create your views here.
 
@@ -8,3 +8,15 @@ def index(request):
         "links" : links
     }
     return render(request, 'links/index.html', context)
+
+# redirection
+
+def root_link(request, link_slug):
+    link = get_object_or_404(Link, slug = link_slug)
+    link.click()
+
+    return redirect(link.url)
+
+def add_link(request):
+    print(request.POST)
+    return render(request, "links/create.html", {})
